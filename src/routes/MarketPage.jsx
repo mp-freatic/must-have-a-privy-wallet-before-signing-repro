@@ -2,6 +2,7 @@ import { Button, Stack, Tab, Tabs } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import useCurrentPrivyAccount from "src/hooks/useCurrentPrivyAccount";
 import useMurmurContracts from "src/hooks/useMurmurContracts";
 import useOpenseaClient from "src/hooks/useOpenseaClient";
 import {
@@ -32,6 +33,7 @@ import store from "src/store";
 //     orderHash: "hash1",
 // },
 export default function MarketPage() {
+    const embeddedWallet = useCurrentPrivyAccount();
     const dispatch = useDispatch();
     const { contracts } = useMurmurContracts();
     const { murmurNFTContract } = contracts;
@@ -39,6 +41,7 @@ export default function MarketPage() {
     const userTokens = useSelector(selectUserTokens);
     const allListings = useSelector(selectTopicListings);
     const loading = useSelector(selectMarketLoading("market"));
+    const [signature, setSignature] = useState();
 
     const tabs = FEED_TABS();
     const [currentTab, setCurrentTab] = useState(
@@ -84,6 +87,22 @@ export default function MarketPage() {
 
     return (
         <Page sx={{ padding: 0 }} onRefresh={refresh}>
+            <Button
+                onClick={async () => {
+                    const provider = await embeddedWallet.getEthereumProvider();
+                    const messageToSign = new Date().getTime();
+                    console.log(
+                        `Signing ${messageToSign} with ${embeddedWallet.address}`,
+                    );
+                    const sig = await provider.request({
+                        method: "personal_sign",
+                        params: [`${messageToSign}`, embeddedWallet.address],
+                    });
+                    window.alert(`sig: ${sig}`);
+                }}
+            >
+                Sign current timestamp
+            </Button>
             <Tabs
                 variant="fullWidth"
                 value={currentTab}
