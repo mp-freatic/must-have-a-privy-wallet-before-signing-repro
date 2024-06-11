@@ -1,0 +1,28 @@
+{
+    "short_name": "Murmur",
+    "name": "murmur",
+    "description": "Buy time to act on exclusive premium information",
+    "icons": [
+        {
+            "src": "img/iconmain-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "img/iconmain-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "img/iconmain-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#000000",
+    "orientation": "portrait"
+}

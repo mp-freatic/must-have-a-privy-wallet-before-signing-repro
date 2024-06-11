@@ -1,0 +1,85 @@
+a,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+p a {
+  text-decoration: underline;
+}
+
+body {
+  overflow: hidden; /* To disable global pull to refresh */
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  width: 100%;
+}
+
+#root {
+  background-color: #0a0a0a;
+  height: 100vh;
+  /* Enable vertical scrolling within the container */
+  overflow-y: auto;
+  /* Smooth scrolling for iOS devices */
+  -webkit-overflow-scrolling: touch;
+}
+
+body #onesignal-slidedown-container #onesignal-slidedown-dialog {
+  background-color: black !important;
+}
+
+body
+  #onesignal-slidedown-container
+  #onesignal-slidedown-dialog
+  .slidedown-body-message {
+  color: white !important;
+}
+
+body #onesignal-slidedown-container #onesignal-slidedown-dialog button.primary {
+  background-color: #3c1dd6 !important;
+}
+
+body
+  #onesignal-slidedown-container
+  #onesignal-slidedown-dialog
+  button.slidedown-button.secondary.secondary {
+  color: #3c1dd6 !important;
+}
+
+.pull-to-refresh-custom .ptr__pull-down {
+  text-align: center;
+}
+
+@-webkit-keyframes cssProgressActive {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: -35px -35px;
+  }
+}
+
+@keyframes cssProgressActive {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: -35px -35px;
+  }
+}
+
+@keyframes shine {
+  from {
+    -webkit-mask-position: 150%;
+  }
+
+  to {
+    -webkit-mask-position: -50%;
+  }
+}

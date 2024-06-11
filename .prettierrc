@@ -1,0 +1,12 @@
+{
+  "importOrder": [
+    "<THIRD_PARTY_MODULES>",
+    "(services|slices|hooks)",
+    "(components/)",
+    "src/",
+    "(^./(.*)$|^../(.*)$)"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "plugins": ["@trivago/prettier-plugin-sort-imports"]
+}
