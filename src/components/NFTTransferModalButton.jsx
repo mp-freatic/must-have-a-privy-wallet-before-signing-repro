@@ -90,6 +90,9 @@ export default function NFTTransferModalButton({
 
                         try {
                             setLoadingAction(true);
+                            console.log(
+                                `Transfering NFT #${tokenId} from ${currentUserWalletAddress} to ${recipientAddress}`,
+                            );
                             const txHash = await transferNFT(
                                 murmurNFTContract,
                                 currentUserWalletAddress,

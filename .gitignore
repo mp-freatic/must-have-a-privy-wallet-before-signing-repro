@@ -48,7 +48,6 @@ Thumbs.db
 *.mov
 *.wmv
 
-public/contracts
 public/hardhat
 dev-dist/
 
