@@ -1,6 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { isAxiosError } from "axios";
-import OneSignal from "react-onesignal";
 
 import { AppDispatch, RootState } from "src/store";
 
@@ -74,11 +73,6 @@ export function selectCurrentUserWalletAddress(state: RootState) {
 export const logoutFromAll =
     () => async (dispatch: AppDispatch) => {
         dispatch(setIsLoggingOut(true));
-        try {
-            OneSignal.logout();
-        } catch (e) {
-            console.error("Could not logout user from OneSignal", e);
-        }
         // the setIsLoggingOut(false) is done in the start page to avoid infinite loop
     };
 

@@ -1,4 +1,3 @@
-import { sentryVitePlugin } from "@sentry/vite-plugin";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
@@ -79,12 +78,6 @@ export default defineConfig(({ mode }) => ({
                 injectionPoint: null,
             },
         }), // see https://vite-pwa-org.netlify.app/guide/service-worker-without-pwa-capabilities.html (as we just want the "install" feature)
-        sentryVitePlugin({
-            org: process.env.SENTRY_ORG,
-            project: "murmur-frontend",
-            // Auth tokens can be obtained from https://sentry.io/orgredirect/organizations/:orgslug/settings/auth-tokens/
-            authToken: process.env.SENTRY_AUTH_TOKEN,
-        }),
         muteWarningsPlugin(warningsToIgnore),
     ],
     optimizeDeps: {
